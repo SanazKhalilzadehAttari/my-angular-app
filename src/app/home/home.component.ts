@@ -6,22 +6,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+export class HomeComponent  {
+  constructor() { }
   registerMode = false;
   users: any;
-    ngOnInit(): void {
-      this.getUsers();
-    }
-  getUsers() {
-    this.http.get("http://localhost:5231/api/user").subscribe(
-      {
-        next: response => this.users = response,
-        error: error => console.log(error),
-        complete: () => console.log("request is completed")
-      }
-    );
-  }
+    //ngOnInit(): void {
+    //  this.getUsers();
+    //}
+  //getUsers() {
+  //  this.http.get("http://localhost:5231/api/user").subscribe(
+  //    {
+  //      next: response => this.users = response,
+  //      error: error => console.log(error),
+  //      complete: () => console.log("request is completed")
+  //    }
+  //  );
+  //}
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
