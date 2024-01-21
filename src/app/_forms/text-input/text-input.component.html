@@ -1,0 +1,18 @@
+<div class="mb-3">
+    <input type={{type}} class="form-control"
+           [class.is-invalid]="control.valid && control.touched"
+           [formControl]="$any(control)"
+           placeholder={{label}} />
+    <!-- <div style="color: red;">
+        value: {{ control.value | json }}
+        <br />
+        errors: {{ control.errors | json }}
+        <br />
+        valid:  {{ control.valid | json }}
+    </div> -->
+   
+    <div class="invalid-feedback" *ngIf='control.errors?.["required"]'>please Enter your {{label}}</div>
+    <div class="invalid-feedback" *ngIf="control.errors?.['minlength']">{{label}} must be at least {{control.errors?.['minlength'].requiredLength}} characters</div>
+    <div class="invalid-feedback" *ngIf="control.errors?.['maxlength']">{{label}} must be Maximum {{control.errors?.['maxlength'].requiredLength}} character</div>
+    <div class="invalid-feedback" *ngIf="control.errors?.['noMatching']">passwords are not matched</div>
+</div>
