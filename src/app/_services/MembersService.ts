@@ -1,4 +1,4 @@
-﻿import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Member } from '../_models/member';
@@ -10,7 +10,7 @@ import { UserParams } from '../_models/userParams';
 @Injectable({
     providedIn: 'root'
 })
-export class MembersService {
+export class MembersService1 {
     baseUrl = environment.apiUrl;
     members: Member[] = [];
     paginationResult: PaginatedResult<Member[]> = new PaginatedResult<Member[]>;
@@ -18,10 +18,10 @@ export class MembersService {
 
     getMembers(userParams: UserParams) {
         let params = new HttpParams();
-        if (page && itemPerPage) {
+       /* if (page && itemPerPage) {
             params = params.append("pageNumber", page);
             params = params.append("pageSize", itemPerPage);
-        }
+        }*/
         // if (this.members.length > 0) return of(this.members);
         return this.http.get<Member[]>(this.baseUrl + 'user',
             { observe: 'response', params }).pipe(
